@@ -10,18 +10,3 @@ serde_yaml = "0.9"
 toml = "0.8"
 clap = { version = "4.5", features = ["derive"] }
 anyhow = "1.0"
-
-[package.metadata.deb]
-maintainer = "fagao-ai <your-email@example.com>"
-copyright = "2024, fagao-ai"
-license-file = ["LICENSE", "4"]
-extended-description = """\
-A flexible configuration to environment variables converter tool. \
-Supports YAML, TOML, and JSON formats with excellent extensibility."""
-depends = "$auto"
-section = "utility"
-priority = "optional"
-assets = [
-    ["target/release/cte", "usr/bin/", "755"],
-    ["README.md", "usr/share/doc/cte/README", "644"],
-]

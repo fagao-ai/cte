@@ -15,44 +15,27 @@
 
 ## 安装
 
-### macOS/Linux (推荐)
+### 快速安装
 
-**使用 Homebrew:**
-```bash
-brew tap fagao-ai/tap
-brew install cte
-```
-
-**使用 APT (Debian/Ubuntu):**
-```bash
-# 添加仓库
-wget -qO- https://fagao-ai.github.io/cte/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/cte.gpg
-echo "deb [arch=$(dpkg --print-architecture)] https://fagao-ai.github.io/cte/apt stable main" | sudo tee /etc/apt/sources.list.d/cte.list
-
-# 安装
-sudo apt update
-sudo apt install cte
-```
-
-**使用安装脚本:**
+**Linux/macOS:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/fagao-ai/cte/main/scripts/install.sh | sudo sh
 ```
 
-### Windows
-
-**PowerShell:**
+**Windows (PowerShell):**
 ```powershell
-# 使用安装脚本
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fagao-ai/cte/main/scripts/install.ps1" -OutFile "install.ps1"
 .\install.ps1
 ```
 
-**或使用 Scoop:**
-```powershell
-scoop bucket add fagao-ai https://github.com/fagao-ai/scoop-bucket
-scoop install cte
-```
+### 手动下载
+
+从 [GitHub Releases](https://github.com/fagao-ai/cte/releases) 下载适合你系统的二进制文件。
+
+- **Linux**: `cte-linux-amd64.tar.gz`
+- **macOS Intel**: `cte-darwin-amd64.tar.gz`
+- **macOS Apple Silicon**: `cte-darwin-arm64.tar.gz`
+- **Windows**: `cte-windows-amd64.zip`
 
 ### 从源码构建
 
