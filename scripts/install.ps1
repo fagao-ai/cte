@@ -9,27 +9,21 @@ $version = $latestRelease.tag_name
 Write-Host "Installing cte $version for Windows..."
 
 # 下载
-$downloadUrl = "https://github.com/fagao-ai/cte/releases/download/$version/cte-windows-amd64.zip"
-$zipPath = "$env:TEMP\cte.zip"
-$extractPath = "$env:TEMP\cte"
+$downloadUrl = "https://github.com/fagao-ai/cte/releases/download/$version/cte-windows-amd64.exe"
+$exePath = "$env:TEMP\cte.exe"
 
 Write-Host "Downloading from $downloadUrl..."
-Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath
-
-# 解压
-Write-Host "Extracting..."
-Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
+Invoke-WebRequest -Uri $downloadUrl -OutFile $exePath
 
 # 安装
 $binDir = "$env:USERPROFILE\.local\bin"
 New-Item -ItemType Directory -Force -Path $binDir | Out-Null
 
 Write-Host "Installing to $binDir..."
-Move-Item -Path "$extractPath\cte.exe" -Destination "$binDir\cte.exe" -Force
+Move-Item -Path $exePath -Destination "$binDir\cte.exe" -Force
 
 # 清理
-Remove-Item -Path $zipPath -Force
-Remove-Item -Path $extractPath -Recurse -Force
+Remove-Item -Path $exePath -Force -ErrorAction SilentlyContinue
 
 Write-Host "✓ cte has been installed to $binDir\cte.exe"
 Write-Host ""

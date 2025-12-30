@@ -54,27 +54,27 @@ jobs:
         run: |
           cd target/${{ matrix.target }}/release
           chmod +x ${{ matrix.artifact_name }}
-          tar czf ${{ matrix.asset_name }}.tar.gz ${{ matrix.artifact_name }}
+          cp ${{ matrix.artifact_name }} ${{ matrix.asset_name }}
 
       - name: Prepare binary (Windows)
         if: runner.os == 'Windows'
         run: |
           cd target/${{ matrix.target }}/release
-          7z a ${{ matrix.asset_name }}.zip ${{ matrix.artifact_name }}
+          cp ${{ matrix.artifact_name }} ${{ matrix.asset_name }}.exe
 
       - name: Upload artifact (Unix)
         if: runner.os != 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.asset_name }}
-          path: target/${{ matrix.target }}/release/${{ matrix.asset_name }}.tar.gz
+          path: target/${{ matrix.target }}/release/${{ matrix.asset_name }}
 
       - name: Upload artifact (Windows)
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.asset_name }}
-          path: target/${{ matrix.target }}/release/${{ matrix.asset_name }}.zip
+          path: target/${{ matrix.target }}/release/${{ matrix.asset_name }}.exe
 
   release:
     name: Create Release
@@ -97,8 +97,10 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            artifacts/*/*.tar.gz
-            artifacts/*/*.zip
+            artifacts/cte-linux-amd64/cte-linux-amd64
+            artifacts/cte-darwin-amd64/cte-darwin-amd64
+            artifacts/cte-darwin-arm64/cte-darwin-arm64
+            artifacts/cte-windows-amd64/cte-windows-amd64.exe
           draft: false
           prerelease: false
           generate_release_notes: true

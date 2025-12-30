@@ -32,10 +32,12 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fagao-ai/cte/main/scri
 
 从 [GitHub Releases](https://github.com/fagao-ai/cte/releases) 下载适合你系统的二进制文件。
 
-- **Linux**: `cte-linux-amd64.tar.gz`
-- **macOS Intel**: `cte-darwin-amd64.tar.gz`
-- **macOS Apple Silicon**: `cte-darwin-arm64.tar.gz`
-- **Windows**: `cte-windows-amd64.zip`
+- **Linux**: `cte-linux-amd64`
+- **macOS Intel**: `cte-darwin-amd64`
+- **macOS Apple Silicon**: `cte-darwin-arm64`
+- **Windows**: `cte-windows-amd64.exe`
+
+下载后直接移动到 PATH 目录即可。
 
 ### 从源码构建
 

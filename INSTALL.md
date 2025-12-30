@@ -6,11 +6,11 @@
 
 ```bash
 # Intel Mac
-curl -L https://github.com/fagao-ai/cte/releases/latest/download/cte-darwin-amd64.tar.gz | tar xz
+curl -L https://github.com/fagao-ai/cte/releases/latest/download/cte-darwin-amd64 -o cte
 sudo mv cte /usr/local/bin/
 
 # Apple Silicon (M1/M2)
-curl -L https://github.com/fagao-ai/cte/releases/latest/download/cte-darwin-arm64.tar.gz | tar xz
+curl -L https://github.com/fagao-ai/cte/releases/latest/download/cte-darwin-arm64 -o cte
 sudo mv cte /usr/local/bin/
 ```
 
@@ -18,24 +18,15 @@ sudo mv cte /usr/local/bin/
 
 ```bash
 # AMD64
-curl -L https://github.com/fagao-ai/cte/releases/latest/download/cte-linux-amd64.tar.gz | tar xz
+curl -L https://github.com/fagao-ai/cte/releases/latest/download/cte-linux-amd64 -o cte
 sudo mv cte /usr/local/bin/
 ```
 
 ### Windows
 
-**PowerShell:**
 ```powershell
-# 使用安装脚本
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fagao-ai/cte/main/scripts/install.ps1" -OutFile "install.ps1"
-.\install.ps1
-```
-
-**手动下载:**
-```powershell
-# 下载并解压
-Invoke-WebRequest -Uri "https://github.com/fagao-ai/cte/releases/latest/download/cte-windows-amd64.zip" -OutFile "cte.zip"
-Expand-Archive -Path "cte.zip" -DestinationPath "."
+# 下载二进制文件
+Invoke-WebRequest -Uri "https://github.com/fagao-ai/cte/releases/latest/download/cte-windows-amd64.exe" -OutFile "cte.exe"
 # 将 cte.exe 添加到 PATH 或移动到系统路径
 ```
 

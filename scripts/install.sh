@@ -42,13 +42,13 @@ fi
 echo "Installing cte $LATEST_VERSION for $OS_TYPE-$ARCH_TYPE..."
 
 # 下载
-DOWNLOAD_URL="https://github.com/fagao-ai/cte/releases/download/${LATEST_VERSION}/cte-${OS_TYPE}-${ARCH_TYPE}.tar.gz"
+BINARY_NAME="cte-$OS_TYPE-$ARCH_TYPE"
+DOWNLOAD_URL="https://github.com/fagao-ai/cte/releases/download/${LATEST_VERSION}/${BINARY_NAME}"
 echo "Downloading from $DOWNLOAD_URL..."
 
 TMP_DIR=$(mktemp -d)
 cd "$TMP_DIR"
-curl -L "$DOWNLOAD_URL" -o cte.tar.gz
-tar xzf cte.tar.gz
+curl -L "$DOWNLOAD_URL" -o cte
 
 # 安装
 if [ -w "/usr/local/bin" ]; then
@@ -59,8 +59,8 @@ else
 fi
 
 echo "Installing to $BIN_DIR..."
+chmod +x cte
 mv cte "$BIN_DIR/cte"
-chmod +x "$BIN_DIR/cte"
 
 # 清理
 cd -
