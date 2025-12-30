@@ -5,6 +5,7 @@
 ## 特性
 
 - ✅ 支持多种配置格式：YAML、TOML、JSON
+- ✅ 跨平台支持：Windows、macOS、Linux
 - ✅ 基于 Trait 的可扩展架构，轻松添加新的配置格式
 - ✅ 支持环境变量前缀
 - ✅ 自定义分隔符（默认 `_`）
@@ -36,6 +37,21 @@ sudo apt install cte
 **使用安装脚本:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/fagao-ai/cte/main/scripts/install.sh | sudo sh
+```
+
+### Windows
+
+**PowerShell:**
+```powershell
+# 使用安装脚本
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fagao-ai/cte/main/scripts/install.ps1" -OutFile "install.ps1"
+.\install.ps1
+```
+
+**或使用 Scoop:**
+```powershell
+scoop bucket add fagao-ai https://github.com/fagao-ai/scoop-bucket
+scoop install cte
 ```
 
 ### 从源码构建

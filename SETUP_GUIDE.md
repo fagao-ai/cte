@@ -150,6 +150,22 @@ tar xzf cte-linux-amd64.tar.gz
 sudo mv cte /usr/local/bin/
 ```
 
+### Windows 用户
+
+```powershell
+# 方式 1: PowerShell 安装脚本（推荐）
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fagao-ai/cte/main/scripts/install.ps1" -OutFile "install.ps1"
+.\install.ps1
+
+# 方式 2: Scoop
+scoop bucket add fagao-ai https://github.com/fagao-ai/scoop-bucket
+scoop install cte
+
+# 方式 3: 手动下载
+# 从 https://github.com/fagao-ai/cte/releases 下载 cte-windows-amd64.zip
+# 解压后将 cte.exe 添加到 PATH
+```
+
 ### Ubuntu/Debian 用户
 
 ```bash
